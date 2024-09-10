@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { font-family: Arial, sans-serif;
+        background-image: url('img1.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed; }
+        #question { font-size: 1.5em; margin: 20px; }
+        .option { display: block; margin: 10px 0; }
+        #timer { font-size: 1.2em; color: red; }
+        #prize { font-size: 1.2em; margin-top: 20px; }
+    </style>
+    <audio id="myAudio">
+        <source src="kbcsongs.mp3">
+    </audio> 
+    <audio id="answer">
+        <source src="shianswer.mp3">
+    </audio> 
+    <script>
+        function gameStart()
+        {
+            document.getElementById('start').style.display="block";
+            document.getElementById('start').style.color="white";
+            document.getElementById('song').style.display="none";
+            document.getElementById('myAudio').play();
+            startGame();
+
+        }
+        </script>
+</head>
+<body>
+    
+       
+        <div>
+            <button id="song" onclick="gameStart()">Start Game</button>
+        </div>
+ 
+  <div id="start" style="display: none;">      
+    <fieldset>
+        <legend>KBC</legend>
+        <div id="question"></div>
+        <div id="options">
+            <button class="option" onclick="submitAnswer('a')">Option A</button>
+            <button class="option" onclick="submitAnswer('b')">Option B</button>
+            <button class="option" onclick="submitAnswer('c')">Option C</button>
+            <button class="option" onclick="submitAnswer('d')">Option D</button>
+        </div>
+        <div id="timer">Time Left: <span id="time">30</span> seconds</div>
+        <div id="prize">Prize: <span id="prizeAmount">0</span></div>
+    
+</fieldset>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
